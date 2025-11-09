@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="Gv-BIU7RGnKLFh46tcn_AAMNTDGeUYxiiy5q8otQVlE" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>The Match Goat — Best Predictions for Upcoming Matches</title>
+  <meta name="description" content="The Match Goat delivers expert predictions and in‑depth match previews for upcoming games across football, basketball, tennis and more." />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+
+  <!-- Icons -->
+  <link rel="icon" href="thematchgoat-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="thematchgoat-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Match Goat">
+  <meta property="og:title" content="The Match Goat — Best Predictions for Upcoming Matches">
+  <meta property="og:description" content="Expert predictions and in‑depth match previews for upcoming games across football, basketball, tennis and more.">
+  <meta property="og:image" content="thematchgoat-icon.png">
+  <!-- <meta property="og:url" content="https://your-domain.com/"> -->
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Match Goat — Best Predictions for Upcoming Matches">
+  <meta name="twitter:description" content="Expert predictions and in‑depth match previews for upcoming games across football, basketball, tennis and more.">
+  <meta name="twitter:image" content="thematchgoat-icon.png">
+
+  <!-- Optional canonical (update when you deploy) -->
+  <!-- <link rel="canonical" href="https://your-domain.com/"> -->
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img class="brand-logo" src="thematchgoat-icon.png" alt="The Match Goat logo" width="28" height="28" />
+        <span class="brand-name">The Match Goat</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#" aria-current="page">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Best Predictions for Upcoming Matches</h1>
+        <p class="sub">In‑depth previews, stats, and smart picks across football, basketball, tennis, and more.</p>
+      </div>
+    </section>
+
+    <section class="categories">
+      <div class="container">
+        <h2 style="margin:0 0 12px">Upcoming Matches</h2>
+        <div id="categoriesContainer" class="categories-container">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container">
+        <h2 style="margin: 0 0 8px;">About The Match Goat</h2>
+        <p style="margin: 0; color: var(--muted);">
+          We publish expert predictions and match previews for the biggest upcoming games. Our analysis covers team form,
+          head‑to‑head, injuries, and odds to help you make smarter picks.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> The Match Goat. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    // Update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
