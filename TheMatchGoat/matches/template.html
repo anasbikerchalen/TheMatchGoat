@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Match Preview</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .match-hero {
+      padding: 28px 0 10px;
+    }
+    .match-hero h1 { margin: 0 0 6px; font-size: clamp(22px, 4.5vw, 30px); }
+    .muted { color: var(--muted); }
+    .content-card {
+      background: linear-gradient(180deg, var(--card) 0%, var(--card-2) 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .stack { display: grid; gap: 16px; }
+
+    /* Cover image */
+    .match-cover-wrap { padding: 8px 0 0; }
+    .container-cover { width: min(900px, 92vw); margin: 0 auto; } /* narrower than main container */
+    .match-cover {
+      width: 100%;
+      height: var(--cover-h, 160px);   /* smaller default height; change per page if needed */
+      object-fit: cover;
+      object-position: center;         /* e.g., 'center top' if subject is at top */
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: var(--card-2);
+    }
+    /* If you ever want an even thinner banner site‑wide, uncomment:
+    .match-cover { height: var(--cover-h, 140px); }
+    */
+  </style>
+  <!-- Favicon + Apple icon -->
+  <link rel="icon" href="../thematchgoat-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../thematchgoat-icon.png">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img class="brand-logo" src="../thematchgoat-icon.png" alt="The Match Goat logo" width="28" height="28" />
+        <a href="../index.html" class="brand-name" style="text-decoration:none;color:#fff">The Match Goat</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Match cover: change ONLY src, alt, and optionally --cover-h per page -->
+  <section class="match-cover-wrap">
+    <div class="container container-cover">
+      <img
+        class="match-cover"
+        src="../images/covers/your-cover-file.jpg"  <!-- CHANGE ME -->
+        alt="Match cover"                           <!-- CHANGE ME -->
+        loading="lazy"
+        <!-- Optional per-page height override: make smaller or larger -->
+        style="--cover-h: 150px;"
+      />
+    </div>
+  </section>
+
+  <main>
+    <section class="match-hero">
+      <div class="container">
+        <h1 id="matchTitle">Match Title</h1>
+        <p class="muted" id="matchMeta">Category • Date</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container stack">
+        <div class="content-card">
+          <h2 style="margin-top:0">Overview</h2>
+          <p>Write your match overview here...</p>
+        </div>
+
+        <div class="content-card">
+          <h2 style="margin-top:0">Predictions</h2>
+          <ul>
+            <li>Prediction 1</li>
+            <li>Prediction 2</li>
+            <li>Prediction 3</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> The Match Goat. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Optional: set title/meta if you know them for this page.
+    // document.getElementById('matchTitle').textContent = "Arsenal vs Spurs";
+    // document.getElementById('matchMeta').textContent = "Football • Sep 14, 2025, 4:30 PM";
+  </script>
+</body>
+</html>
