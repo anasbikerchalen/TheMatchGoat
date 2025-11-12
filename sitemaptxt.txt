@@ -1,3 +1,4 @@
-https://thematchgoat.netlify.app/
-https://thematchgoat.netlify.app/matches/georgia-vs-bulgaria.html
-https://thematchgoat.netlify.app/matches/lithuania-vs-netherlands.html
+https://thematchgoat.vercel.app/
+https://thematchgoat.vercel.app/matches/georgia-vs-bulgaria.html
+https://thematchgoat.vercel.app/matches/lithuania-vs-netherlands.html
+https://thematchgoat.vercel.app/blog/

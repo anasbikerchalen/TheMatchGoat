@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thematchgoat.netlify.app/mysitemap.xml
+Sitemap: https://thematchgoat.vercel.app/mysitemap.xml

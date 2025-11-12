@@ -1,89 +1,71 @@
-// ========= Basic data + helper to add and render matches =========
+// Your free API key from https://www.thesportsdb.com/api.php
+const API_KEY = "123"; // Using the test API key
 
-// Add your matches here using addMatch(...). Example at bottom.
-// Each match: title, category, date (local time), optional url.
-// If url is omitted, it will link to matches/<slug-from-title>.html
+// Define the leagues you want to fetch. Find league IDs on TheSportsDB.
+// Example: 4328=English Premier League, 4387=NBA, 4424=NFL
+const LEAGUE_IDS = ["4328", "4387", "4424"];
 
-const matches = [];
-
-// Helper: create a URL-friendly slug
-function slugify(text) {
-  return String(text)
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // remove accents
-    .toLowerCase().trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)+/g, "");
-}
-
-// Helper: safe date parsing (accepts "YYYY-MM-DD HH:mm" or ISO)
-function toDate(d) {
-  if (d instanceof Date) return d;
-  if (typeof d === "number") return new Date(d);
-  if (typeof d === "string") {
-    // allow "YYYY-MM-DD HH:mm"
-    const normalized = d.includes("T") ? d : d.replace(" ", "T");
-    const dt = new Date(normalized);
-    if (!isNaN(dt)) return dt;
-  }
-  return new Date(d);
-}
-
-function formatDate(d) {
-  const date = toDate(d);
-  return date.toLocaleString(undefined, {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
-  });
-}
-
-// Public function to add a match
-// Usage:
-// addMatch("Arsenal vs Spurs", "Football", "2025-09-14 16:30");
-// or addMatch({ title: "...", category: "...", date: "...", url: "..." })
-function addMatch(titleOrObj, category, date, url) {
-  const data = typeof titleOrObj === "object"
-    ? titleOrObj
-    : { title: titleOrObj, category, date, url };
-
-  if (!data.title || !data.category || !data.date) {
-    console.warn("addMatch requires title, category, and date.");
-    return null;
-  }
-
-  const id = cryptoRandomId();
-  const title = String(data.title).trim();
-  const cat = String(data.category).trim();
-  const slug = slugify(title);
-  const catSlug = slugify(cat);
-  const when = toDate(data.date);
-  const link = data.url || `matches/${slug}.html`;
-
-  const match = { id, title, category: cat, categorySlug: catSlug, date: when, url: link, slug };
-  matches.push(match);
-  render();
-  return match;
-}
-
-// Simple random id
-function cryptoRandomId() {
-  if (window.crypto?.getRandomValues) {
-    const a = new Uint32Array(2);
-    crypto.getRandomValues(a);
-    return [...a].map(n => n.toString(36)).join("");
-  }
-  return Math.random().toString(36).slice(2) + Date.now().toString(36);
-}
-
-// Group matches by category and render them
-function render() {
+async function render() {
   const container = document.getElementById("categoriesContainer");
   container.innerHTML = "";
 
+  try {
+    const matches = await fetchMatchesFromAPI();
+    // Filter out any matches that might have already passed
+    const upcoming = matches.filter(m => m.date >= new Date());
+    displayMatches(upcoming);
+  } catch (error) {
+    console.error("Failed to load and render matches:", error);
+    container.appendChild(emptyAll(error.message));
+  }
+}
+
+/**
+ * Fetches upcoming matches from TheSportsDB API for the configured leagues.
+ */
+async function fetchMatchesFromAPI() {
+  const allMatchPromises = LEAGUE_IDS.map(async (leagueId) => {
+    try {
+      // This endpoint gets the next 15 events for a given league
+      const response = await fetch(`https://www.thesportsdb.com/api/v1/json/${API_KEY}/eventsnextleague.php?id=${leagueId}`);
+      if (!response.ok) {
+        console.error(`API request failed for league ${leagueId}: ${response.statusText}`);
+        return [];
+      }
+      const data = await response.json();
+
+      // The API returns `null` if the league is not found or has no events
+      if (!data || !data.events) {
+        return [];
+      }
+
+      // Transform the API data into the format our website uses
+      return data.events.map(event => ({
+        id: event.idEvent,
+        title: event.strEvent,
+        category: event.strLeague,
+        // Combine date and time. The API provides them separately.
+        // Append 'Z' to ensure the date is parsed as UTC, preventing timezone issues.
+        // The API sometimes omits timezone info, which can lead to incorrect local time conversion.
+        date: new Date(`${event.dateEvent}T${event.strTime || '00:00:00'}Z`),
+        // TheSportsDB doesn't provide a direct preview URL, so we link to a search.
+        url: `https://www.thesportsdb.com/event/${event.idEvent}`,
+      }));
+    } catch (error) {
+      console.error(`Error fetching data for league ${leagueId}:`, error);
+      return []; // Return empty array on error to not break the whole page
+    }
+  });
+
+  // Wait for all league fetches to complete and flatten the array of arrays
+  const nestedMatches = await Promise.all(allMatchPromises);
+  return nestedMatches.flat();
+}
+
+function displayMatches(matches) {
+  const container = document.getElementById("categoriesContainer");
   if (!matches.length) {
-    container.appendChild(emptyAll());
+    container.appendChild(emptyAll("No upcoming matches found via API."));
     return;
   }
 
@@ -93,47 +75,45 @@ function render() {
     return acc;
   }, {});
 
-  // Sort categories alpha
+  // Sort categories alphabetically
   const cats = Object.keys(groups).sort((a, b) => a.localeCompare(b));
   cats.forEach(cat => {
     // Sort matches by date ascending
-    groups[cat].sort((a, b) => toDate(a.date) - toDate(b.date));
+    groups[cat].sort((a, b) => a.date - b.date);
     container.appendChild(categoryCard(cat, groups[cat]));
   });
 }
+
+function formatDate(d) {
+  const date = (d instanceof Date) ? d : new Date(d);
+  if (isNaN(date)) return "Invalid Date";
+  return date.toLocaleString(undefined, {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+}
+
+// --- UI Card Generation ---
 
 function categoryCard(categoryName, items) {
   const section = document.createElement("section");
   section.className = "category-card";
 
-  const header = document.createElement("div");
+  const header = document.createElement("header");
   header.className = "category-header";
-
-  const titleWrap = document.createElement("div");
-  titleWrap.className = "category-title";
-
-  const dot = document.createElement("span");
-  dot.className = "category-dot";
-
-  const title = document.createElement("h2");
-  title.textContent = categoryName;
-  title.style.margin = "0";
-  title.style.fontSize = "18px";
-
-  titleWrap.append(dot, title);
-  header.appendChild(titleWrap);
+  header.innerHTML = `
+    <h3 class="category-title">
+      <span class="category-dot"></span>
+      ${categoryName}
+    </h3>
+  `;
 
   const list = document.createElement("div");
   list.className = "match-list";
-
-  if (!items.length) {
-    const empty = document.createElement("div");
-    empty.className = "empty-wrap";
-    empty.innerHTML = `<div class="empty-card"><h3>No matches here yet</h3><p>Add some in app.js</p></div>`;
-    list.appendChild(empty);
-  } else {
-    items.forEach(m => list.appendChild(matchCard(m)));
-  }
+  items.forEach(item => list.appendChild(matchCard(item)));
 
   section.append(header, list);
   return section;
@@ -145,52 +125,38 @@ function matchCard(m) {
   a.href = m.url;
   a.title = `Open: ${m.title}`;
 
+  // Open external links in a new tab
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
+
   const title = document.createElement("div");
   title.className = "match-title";
   title.textContent = m.title;
 
-  const cta = document.createElement("div");
-  cta.className = "view-link";
-  cta.textContent = "Preview";
-
   const meta = document.createElement("div");
   meta.className = "match-meta";
+  meta.innerHTML = `<span class="meta-chip">${formatDate(m.date)}</span>`;
 
-  const dateChip = document.createElement("span");
-  dateChip.className = "meta-chip";
-  dateChip.innerHTML = `📅 ${formatDate(m.date)}`;
+  const link = document.createElement("div");
+  link.className = "view-link";
+  link.textContent = "View";
 
-  meta.append(dateChip);
-  a.append(title, cta, meta);
+  a.append(title, meta, link);
   return a;
 }
 
-function emptyAll() {
+function emptyAll(message = "No upcoming matches") {
   const wrap = document.createElement("div");
   wrap.className = "empty-wrap";
   const card = document.createElement("div");
   card.className = "empty-card";
   card.innerHTML = `
-    <h3>No upcoming matches</h3>
-    <p>Open <strong>app.js</strong> and add some using <code>addMatch(...)</code>.</p>
+    <h3>${message}</h3>
+    <p>Check your API key and league IDs in <strong>app.js</strong> or try again later.</p>
   `;
   wrap.appendChild(card);
   return wrap;
 }
 
-// Initial render (empty)
+// Initial render
 document.addEventListener("DOMContentLoaded", render);
-
-// ======= ADD YOUR MATCHES BELOW (examples) =======
-// Remove the // to add your own:
-addMatch("Georgia vs Bulgaria", "UEFA World Cup Qualifying", "2025-09-07 13:00");
-addMatch("Lithuania vs Netherlands", "UEFA World Cup Qualifying", "2025-09-07 16:00");
-
-// addMatch("Arsenal vs Spurs", "Football", "2025-09-14 16:30");
-// addMatch("Lakers vs Celtics", "Basketball", "2025-10-04 19:00");
-// addMatch({
-//   title: "Medvedev vs Alcaraz",
-//   category: "Tennis",
-//   date: "2025-09-20 14:00",
-//   // url: "matches/medvedev-vs-alcaraz.html" // optional, auto-generated if not provided
-// });

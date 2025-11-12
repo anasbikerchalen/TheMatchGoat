@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="prYCzT2c2MKSPWcZYT6Zre-whlTIT7_YlwCdY4GHiEo" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Blog — The Match Goat</title>
+  <meta name="description" content="The Match Goat delivers expert predictions and in‑depth match previews for upcoming games across football, basketball, tennis and more." />
+
+  <!-- Icons -->
+  <link rel="icon" href="../thematchgoat-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../thematchgoat-icon.png">
+
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img class="brand-logo" src="../thematchgoat-icon.png" alt="The Match Goat logo" width="28" height="28" />
+        <a href="../index.html" class="brand-name" style="text-decoration:none;color:#fff">The Match Goat</a>
+      </div>
+      <nav class="main-nav">
+        <a href="../index.html">Home</a>
+        <a href="../blog/" aria-current="page">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>All Match Previews</h1>
+        <p class="sub">In‑depth analysis and predictions for every match.</p>
+      </div>
+    </section>
+    <section class="categories">
+      <div class="container">
+        <div id="blogPostsContainer" class="categories-container">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> The Match Goat. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    // Update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const blogPosts = [
+      {
+        title: "Georgia vs Bulgaria Preview",
+        url: "../matches/georgia-vs-bulgaria.html",
+        meta: "UEFA World Cup Qualifying"
+      },
+      {
+        title: "Lithuania vs Netherlands Preview",
+        url: "../matches/lithuania-vs-netherlands.html",
+        meta: "UEFA World Cup Qualifying"
+      },
+      {
+        title: "England vs Serbia Preview",
+        url: "../matches/england-vs-serbia.html",
+        meta: "2026 FIFA World Cup Qualifier"
+      }
+    ];
+
+    const container = document.getElementById("blogPostsContainer");
+
+    function blogPostCard(post) {
+      const a = document.createElement("a");
+      a.className = "match-card";
+      a.href = post.url;
+      a.title = `Open: ${post.title}`;
+
+      const title = document.createElement("div");
+      title.className = "match-title";
+      title.textContent = post.title;
+      
+      const meta = document.createElement("div");
+      meta.className = "match-meta";
+      meta.innerHTML = `<span class="meta-chip">${post.meta}</span>`;
+
+      const link = document.createElement("div");
+      link.className = "view-link";
+      link.textContent = "View";
+
+      a.append(title, meta, link);
+      return a;
+    }
+
+    blogPosts.forEach(post => {
+      container.appendChild(blogPostCard(post));
+    });
+  </script>
+</body>
+
+</html>

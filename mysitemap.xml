@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://thematchgoat.netlify.app/</loc>
+    <loc>https://thematchgoat.vercel.app/</loc>
   </url>
   <url>
-    <loc>https://thematchgoat.netlify.app/matches/georgia-vs-bulgaria.html</loc>
+    <loc>https://thematchgoat.vercel.app/matches/georgia-vs-bulgaria.html</loc>
   </url>
   <url>
-    <loc>https://thematchgoat.netlify.app/matches/lithuania-vs-netherlands.html</loc>
+    <loc>https://thematchgoat.vercel.app/matches/lithuania-vs-netherlands.html</loc>
+  </url>
+  <url>
+    <loc>https://thematchgoat.vercel.app/blog/</loc>
   </url>
 </urlset>
