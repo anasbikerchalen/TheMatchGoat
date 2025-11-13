@@ -167,6 +167,37 @@ body {
 }
 
 /* ====================== */
+/* Article / Post Page    */
+/* ====================== */
+
+article {
+  max-width: 720px; /* Optimal reading width */
+  margin: 0 auto;
+  padding: 20px 0 60px;
+}
+
+article h2 {
+  font-size: clamp(26px, 4vw, 34px);
+  margin: 0 0 12px;
+  letter-spacing: .2px;
+}
+
+article h3 {
+  font-size: clamp(20px, 3vw, 24px);
+  margin: 40px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+article p, article li {
+  color: var(--muted);
+}
+
+article ul {
+  padding-left: 24px;
+}
+
+/* ====================== */
 /* Match cover (GLOBAL)   */
 /* ====================== */
 
