@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://thematchgoat.netlify.app/mysitemap.xml
