@@ -14,6 +14,9 @@
   <link rel="icon" href="../thematchgoat-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="../thematchgoat-icon.png">
 
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.thematchgoat.vercel.app.com/articles/understanding-betting-odds.html" />
+
   <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="The Match Goat">
@@ -26,6 +29,30 @@
   <meta name="twitter:title" content="Understanding Betting Odds - The Match Goat">
   <meta name="twitter:description" content="A beginner's guide to understanding sports betting odds, including plus and minus signs, and how bookmakers set their lines.">
   <meta name="twitter:image" content="../thematchgoat-cover.png">
+
+  <!-- JSON-LD Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Understanding Betting Odds: A Beginner's Guide",
+    "image": "https://www.thematchgoat.vercel.app/thematchgoat-cover.png",
+    "author": {
+      "@type": "Organization",
+      "name": "The Match Goat"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Match Goat",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.thematchgoat.vercel.app/thematchgoat-icon.png"
+      }
+    },
+    "datePublished": "2023-10-27",
+    "description": "A beginner's guide to understanding sports betting odds, including plus and minus signs, and how bookmakers set their lines."
+  }
+  </script>
 
 </head>
 <body>
@@ -50,11 +77,11 @@
           <div class="odds-inputs">
             <div class="input-group">
               <label for="odds-input">Enter Odds:</label>
-              <input type="number" id="odds-input" placeholder="e.g., 200 or -150" onkeyup="calculateOdds()" onchange="calculateOdds()">
+              <input type="number" id="odds-input" placeholder="e.g., 200 or -150">
             </div>
             <div class="input-group">
               <label for="bet-amount-input">Enter Bet Amount ($):</label>
-              <input type="number" id="bet-amount-input" value="100" placeholder="e.g., 100" onkeyup="calculateOdds()" onchange="calculateOdds()">
+              <input type="number" id="bet-amount-input" value="100" placeholder="e.g., 100">
             </div>
           </div>
           <div id="odds-explanation" class="odds-explanation-box">
@@ -117,69 +144,18 @@
         }
         </style>
 
-        <script>
-        function calculateOdds() {
-          const oddsInput = document.getElementById('odds-input');
-          const betAmountInput = document.getElementById('bet-amount-input');
-          const explanationBox = document.getElementById('odds-explanation');
-
-          const odds = parseFloat(oddsInput.value);
-          const betAmount = parseFloat(betAmountInput.value);
-
-          if (isNaN(odds) || isNaN(betAmount) || betAmount <= 0) {
-            explanationBox.innerHTML = "Please enter valid odds and a bet amount.";
-            return;
-          }
-
-          let profit = 0;
-          let totalPayout = 0;
-          let explanation = "";
-
-          if (odds > 0) {
-            // Positive Odds (Underdog)
-            profit = (betAmount / 100) * odds;
-            totalPayout = profit + betAmount;
-            explanation = `
-              With <strong>+${odds}</strong> odds (underdog), the number shows how much profit you win for every $100 you bet.<br><br>
-              A <strong>${betAmount.toFixed(2)}</strong> wager would win you <strong>${profit.toFixed(2)}</strong> in profit, for a total payout of <strong>${totalPayout.toFixed(2)}</strong>.
-            `;
-          } else if (odds < 0) {
-            // Negative Odds (Favorite)
-            profit = (betAmount / Math.abs(odds)) * 100;
-            totalPayout = profit + betAmount;
-            explanation = `
-              With <strong>${odds}</strong> odds (favorite), the number shows how much you must bet to win $100 in profit.<br><br>
-              A <strong>${betAmount.toFixed(2)}</strong> wager would win you <strong>${profit.toFixed(2)}</strong> in profit, for a total payout of <strong>${totalPayout.toFixed(2)}</strong>.
-            `;
-          } else {
-            explanationBox.innerHTML = "Odds cannot be zero. Please enter a positive or negative value.";
-            return;
-          }
-
-          explanationBox.innerHTML = explanation;
-          explanationBox.style.textAlign = 'left'; // Align text left once results are shown
-          explanationBox.style.display = 'block';
-          explanationBox.style.alignItems = 'initial';
-          explanationBox.style.justifyContent = 'initial';
-        }
-
-        // Set initial state
-        document.addEventListener('DOMContentLoaded', (event) => {
-          document.getElementById('odds-explanation').innerHTML = "Enter an odds value to get started.";
-        });
-        </script>
       <article>
-        <h2>Understanding Betting Odds: A Beginner's Guide</h2>
+        <h1>Understanding Betting Odds: A Beginner's Guide</h1>
         <p>Navigating the world of sports betting can be exciting, but for newcomers, the language of odds can seem like a complex code. This guide will break down everything you need to know about betting odds, from the basics of plus and minus signs to how bookmakers set their lines. Whether you're trying to understand what +200 odds mean or figuring out if -500 is a good bet, we've got you covered.</p>
         
-        <h3>The Basics: What Do Plus and Minus Odds Mean?</h3>
+        <h2>The Basics: What Do Plus and Minus Odds Mean?</h2>
         <p>In the realm of American odds, the plus (+) and minus (-) signs are fundamental indicators of potential payouts and the likelihood of an outcome.</p>
         <ul>
           <li><strong>Plus (+) Odds:</strong> These odds, also known as underdog odds, indicate how much profit you will win on a $100 bet. A higher positive number signifies a greater potential payout and a less likely outcome. For example, +200 odds mean you would win $200 on a $100 wager.</li>
           <li><strong>Minus (-) Odds:</strong> Conversely, minus odds, or favorite odds, show how much you need to bet to win $100. The larger the negative number, the more heavily favored that outcome is, and the smaller the potential profit. For instance, -200 odds mean you must bet $200 to win $100.</li>
         </ul>
 
-        <h3>A Closer Look at Positive (+) Odds and Payouts</h3>
+        <h2>A Closer Look at Positive (+) Odds and Payouts</h2>
         <p>Positive odds are straightforward to calculate. The number next to the plus sign is the exact amount of profit you'll receive for every $100 you risk.</p>
         <ul>
             <li><strong>What does +200 odds mean?</strong> It means for every $100 you bet, you will win $200 in profit if your bet is successful. Your total return would be $300 ($200 profit + $100 original stake).</li>
@@ -193,7 +169,7 @@
         </ul>
         <p>A common question is whether +100 odds are good. At +100, a successful $100 bet wins you $100 in profit, effectively doubling your money. This is also known as "even money."</p>
 
-        <h3>Diving into Negative (-) Odds</h3>
+        <h2>Diving into Negative (-) Odds</h2>
         <p>Negative odds represent the favored outcome and require a larger initial stake for a smaller profit.</p>
         <ul>
             <li><strong>What do minus (-) odds mean?</strong> The number next to the minus sign is the amount you need to bet to win $100.</li>
@@ -204,7 +180,7 @@
             <li><strong>What do –110 odds mean in betting?</strong> This is a very common line in sports betting, especially for point spreads and totals. It means you need to bet $110 to win $100. The extra $10 is the bookmaker's commission, often called the "juice" or "vig."</li>
         </ul>
 
-        <h3>Value and Strategy in Betting Odds</h3>
+        <h2>Value and Strategy in Betting Odds</h2>
         <p>Understanding the numbers is only half the battle. Successful betting involves identifying value and knowing which odds are worth the risk.</p>
         <ul>
             <li><strong>Are +4000 odds good?</strong> Odds of +4000 represent a significant underdog. While the potential payout is massive ($4000 profit on a $100 bet), the implied probability of winning is very low. These are longshot bets that rarely come in. The "goodness" of these odds depends on whether you believe the actual chances of that outcome are better than what the odds suggest.</li>
@@ -212,21 +188,21 @@
             <li><strong>Are odds better if negative or positive?</strong> Neither is inherently "better." Negative odds indicate a higher probability of winning but a lower payout. Positive odds offer a higher payout but come with a lower probability of success. The best odds for you depend on your risk tolerance and betting strategy.</li>
         </ul>
 
-        <h3>The Mechanics Behind the Scenes</h3>
+        <h2>The Mechanics Behind the Scenes</h2>
         <p>Ever wondered how those numbers come to be? Here's a look at the process.</p>
         <ul>
             <li><strong>How do bookmakers set odds?</strong> Bookmakers employ oddsmakers and statisticians who analyze a vast amount of data, including historical performance, recent form, injuries, and weather conditions. They use this information to create a probability for each outcome and then translate that into odds, building in a profit margin for themselves (the vig).</li>
             <li><strong>Why do odds change before a match?</strong> Odds are dynamic and can shift for several reasons. A large amount of money being bet on one side can cause bookmakers to adjust the odds to encourage betting on the other side, balancing their risk. New information, such as a key player's injury or a change in weather, can also lead to significant odds changes.</li>
         </ul>
 
-        <h3>Navigating Different Odds Formats</h3>
+        <h2>Navigating Different Odds Formats</h2>
         <p>While American odds are popular in the United States, you may encounter other formats.</p>
         <ul>
             <li><strong>How do American odds compare to decimal odds?</strong> Decimal odds are common in Europe and represent the total return for a $1 bet (stake + profit). To convert positive American odds to decimal, divide the American odds by 100 and add 1. For example, +200 becomes (200/100) + 1 = 3.00. For negative odds, divide 100 by the American odds (without the minus sign) and add 1. For instance, -110 becomes (100/110) + 1 = 1.91.</li>
             <li><strong>What are the easiest odds to understand?</strong> For many beginners, decimal odds are the simplest to grasp because they directly show the total payout. However, American odds become intuitive with a little practice, especially for understanding favorites and underdogs at a glance.</li>
         </ul>
 
-        <h3>Advice for Beginner Bettors</h3>
+        <h2>Advice for Beginner Bettors</h2>
         <p>If you're just starting, it's wise to begin with smaller bets on outcomes you understand well. Pay attention to how odds move and what they imply about the probability of an event. As you gain more experience, you can delve deeper into more complex betting strategies and find what works best for you.</p>
       </article>
     </div>
@@ -237,9 +213,5 @@
       <p>© <span id="year"></span> The Match Goat. All rights reserved.</p>
     </div>
   </footer>
-  <script>
-    // Update footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
