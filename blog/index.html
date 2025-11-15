@@ -31,13 +31,16 @@
   <main>
     <section class="hero">
       <div class="container">
-        <h1>All Match Previews</h1>
-        <p class="sub">In‑depth analysis and predictions for every match.</p>
+        <h1>Blog</h1>
+        <p class="sub">In‑depth guides, analysis, and predictions.</p>
       </div>
     </section>
     <section class="categories">
       <div class="container">
-        <div id="blogPostsContainer" class="categories-container">
+        <h2>Betting Guides</h2>
+        <div id="guidesContainer" class="categories-container"></div>
+        <h2 style="margin-top: 40px;">Latest Match Predictions</h2>
+        <div id="matchesContainer" class="categories-container">
         </div>
       </div>
     </section>
@@ -53,7 +56,11 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const blogPosts = [
-      
+      {
+        title: "Understanding Betting Odds: A Beginner's Guide",
+        url: "../articles/understanding-betting-odds.html",
+        meta: "Betting Guide"
+      },
       {
         title: "France vs Ukraine Preview",
         url: "../matches/france-vs-ukraine.html",
@@ -76,7 +83,8 @@
       }
     ];
 
-    const container = document.getElementById("blogPostsContainer");
+    const guidesContainer = document.getElementById("guidesContainer");
+    const matchesContainer = document.getElementById("matchesContainer");
 
     function blogPostCard(post) {
       const a = document.createElement("a");
@@ -100,8 +108,12 @@
       return a;
     }
 
-    blogPosts.forEach(post => {
-      container.appendChild(blogPostCard(post));
+    blogPosts.forEach((post) => {
+      if (post.url.includes("/articles/")) {
+        guidesContainer.appendChild(blogPostCard(post));
+      } else {
+        matchesContainer.appendChild(blogPostCard(post));
+      }
     });
   </script>
 </body>
