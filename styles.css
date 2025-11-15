@@ -200,6 +200,15 @@ article ul {
   padding-left: 24px;
 }
 
+article a {
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+article a:hover {
+  text-decoration: underline;
+}
+
 /* ====================== */
 /* Match cover (GLOBAL)   */
 /* ====================== */
