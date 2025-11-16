@@ -244,3 +244,10 @@ img.match-cover.cropped {
 img.match-cover:not(:first-of-type) {
   display: none;
 }
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* To remove extra space below image */
+  margin: 0 auto; /* To center the image if it's smaller than its container */
+}
