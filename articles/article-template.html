@@ -129,10 +129,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <!-- SEO FIX: Use H2 for main sections, not H3 -->
         <h2>[This is a Subheading for a New Section]</h2>
-        <p>This is a paragraph with more details. You can include <strong>bold text</strong> and also <a href="#">links to other pages</a>.</p>
+        <p>This is a paragraph with more details. You can include <strong>bold text</strong> and also <a href="[another-article-url].html">internal links to other pages</a> to improve SEO.</p>
         
         <ul>
-          <li>This is a list item.</li>
+          <li>This is a list item. Use lists to structure information clearly.</li>
           <li>This is another list item.</li>
         </ul>
 
@@ -145,5 +145,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>© <span id="year"></span> The Match Goat. All rights reserved.</p>
     </div>
   </footer>
+  <!-- Script to dynamically update the year in the footer -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
