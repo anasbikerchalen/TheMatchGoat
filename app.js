@@ -7,15 +7,21 @@ const LEAGUE_IDS = ["4328", "4387", "4424"];
 
 async function render() {
   const container = document.getElementById("categoriesContainer");
+  // If the container element doesn't exist on this page, do nothing.
+  if (!container) {
+    return;
+  }
+
   container.innerHTML = "";
 
   try {
     const matches = await fetchMatchesFromAPI();
     // Filter out any matches that might have already passed
     const upcoming = matches.filter(m => m.date >= new Date());
-    displayMatches(upcoming);
+    displayMatches(container, upcoming);
   } catch (error) {
     console.error("Failed to load and render matches:", error);
+    // The container is guaranteed to exist here due to the check above.
     container.appendChild(emptyAll(error.message));
   }
 }
@@ -62,8 +68,7 @@ async function fetchMatchesFromAPI() {
   return nestedMatches.flat();
 }
 
-function displayMatches(matches) {
-  const container = document.getElementById("categoriesContainer");
+function displayMatches(container, matches) {
   if (!matches.length) {
     container.appendChild(emptyAll("No upcoming matches found via API."));
     return;
@@ -159,4 +164,10 @@ function emptyAll(message = "No upcoming matches") {
 }
 
 // Initial render
-document.addEventListener("DOMContentLoaded", render);
+document.addEventListener("DOMContentLoaded", () => {
+  // Only run the render function if the main container exists on the page.
+  // This prevents errors on pages where the script is included but not needed.
+  if (document.getElementById("categoriesContainer")) {
+    render();
+  }
+});
