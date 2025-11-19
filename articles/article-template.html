@@ -7,7 +7,10 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WWFLDWLN');</script>
+<!-- PERFORMANCE FIX: Preconnect to Google to speed up GTM loading -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
 <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -15,9 +18,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <title>[Article Title] - The Match Goat</title>
   <meta name="description" content="[A brief, compelling description of the article content for SEO.]" />
 
-  <!-- === Styles & Scripts (Should not need to be changed) === -->
+  <!-- === Styles & Scripts === -->
   <link rel="stylesheet" href="../styles.css" />
+  <!-- PERFORMANCE FIX: 'defer' prevents this script from blocking page load -->
   <script defer src="../app.js"></script>
+  
   <style>
     h1 {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -30,23 +35,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background-clip: text;
       color: transparent;
     }
+    /* Basic Image Reset for Mobile Safety */
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+      border-radius: 14px;
+    }
   </style>
 
-  <!-- === Favicons (Should not need to be changed) === -->
+  <!-- === Favicons === -->
   <link rel="icon" href="../thematchgoat-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="../thematchgoat-icon.png">
 
   <!-- === SEO Tags: Update the canonical URL and date === -->
   <link rel="canonical" href="https://www.thematchgoat.vercel.app/articles/[your-new-article-url].html" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (Facebook/LinkedIn) -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="The Match Goat">
   <meta property="og:title" content="[Article Title] - The Match Goat">
   <meta property="og:description" content="[A brief, compelling description of the article content for SEO.]">
   <meta property="og:image" content="../thematchgoat-cover.png">
 
-  <!-- Twitter -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="[Article Title] - The Match Goat">
   <meta name="twitter:description" content="[A brief, compelling description of the article content for SEO.]">
@@ -103,8 +116,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h1>[Your Main Article Title Here]</h1>
         <p>This is the introductory paragraph. Explain what the article is about and what the reader will learn.</p>
 
-        <h3>[This is a Subheading for a New Section]</h3>
+        <!-- --- COPY THIS BLOCK FOR IMAGES --- -->
+        <div class="image-container">
+          <picture>
+            <!-- 1. Create your WebP file and link it here -->
+            <source srcset="img/[your-image-name].webp" type="image/webp">
+            <!-- 2. Link the original PNG here as fallback + Add Width/Height -->
+            <img src="img/[your-image-name].png" alt="[Description of image for SEO]" width="800" height="450" loading="lazy">
+          </picture>
+        </div>
+        <!-- ---------------------------------- -->
+
+        <!-- SEO FIX: Use H2 for main sections, not H3 -->
+        <h2>[This is a Subheading for a New Section]</h2>
         <p>This is a paragraph with more details. You can include <strong>bold text</strong> and also <a href="#">links to other pages</a>.</p>
+        
         <ul>
           <li>This is a list item.</li>
           <li>This is another list item.</li>
