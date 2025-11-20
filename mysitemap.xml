@@ -60,10 +60,10 @@
   </url>
   <url>
     <loc>https://thematchgoat.vercel.app/matches/burnley-vs-chelsea-preview-nov-22.html</loc>
-  <image:image>
-    <image:loc>https://thematchgoat.vercel.app/images/covers/Burnley-vs-Chelsea.webp</image:loc>
-    <image:title>Burnley vs Chelsea Premier League Match Preview</image:title>
-  </image:image>
+    <image:image>
+      <image:loc>https://thematchgoat.vercel.app/images/covers/Burnley-vs-Chelsea.webp</image:loc>
+      <image:title>Burnley vs Chelsea Premier League Match Preview</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://thematchgoat.vercel.app/matches/liverpool-vs-nottingham-forest-preview-nov-22.html</loc>
@@ -74,10 +74,10 @@
   </url>
   <url>
     <loc>https://thematchgoat.vercel.app/matches/newcastle-vs-man-city-preview-nov-22.html</loc>
-  <image:image>
-    <image:loc>https://thematchgoat.vercel.app/images/covers/Newcastle-vs-Manchester-City.webp</image:loc>
-    <image:title>Newcastle vs. Manchester City Match Preview</image:title>
-  </image:image>
+    <image:image>
+      <image:loc>https://thematchgoat.vercel.app/images/covers/Newcastle-vs-Manchester-City.webp</image:loc>
+      <image:title>Newcastle vs. Manchester City Match Preview</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://thematchgoat.vercel.app/matches/arsenal-vs-tottenham-preview-nov-23.html</loc>
@@ -86,4 +86,4 @@
       <image:title>Arsenal vs. Tottenham Hotspur North London Derby Preview</image:title>
     </image:image>
 </urlset>
-
+  </url>
