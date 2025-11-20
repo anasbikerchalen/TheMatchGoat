@@ -53,6 +53,9 @@
     <loc>https://thematchgoat.vercel.app/articles/are-betting-apps-legal-in-california.html</loc>
   </url>
   <url>
+    <loc>https://thematchgoat.vercel.app/articles/football-betting-strategy.html</loc>
+  </url>
+  <url>
     <loc>https://thematchgoat.vercel.app/articles/are-betting-winnings-taxable.html</loc>
   </url>
   <url>
@@ -79,7 +82,8 @@
   <url>
     <loc>https://thematchgoat.vercel.app/matches/arsenal-vs-tottenham-preview-nov-23.html</loc>
     <image:image>
-      <image:loc>https://thematchgoat.vercel.app/images/covers/Arsenal-vs-Tottenham%20Hotspur.webp</image:loc>
+      <image:loc>https://thematchgoat.vercel.app/images/covers/Arsenal-vs-Tottenham-Hotspur.webp</image:loc>
       <image:title>Arsenal vs. Tottenham Hotspur North London Derby Preview</image:title>
     </image:image>
 </urlset>
+
