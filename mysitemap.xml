@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://thematchgoat.vercel.app/</loc>
   </url>
@@ -54,4 +55,31 @@
   <url>
     <loc>https://thematchgoat.vercel.app/articles/are-betting-winnings-taxable.html</loc>
   </url>
+  <url>
+    <loc>https://thematchgoat.vercel.app/matches/burnley-vs-chelsea-preview-nov-22.html</loc>
+  <image:image>
+    <image:loc>https://thematchgoat.vercel.app/images/covers/Burnley-vs-Chelsea.webp</image:loc>
+    <image:title>Burnley vs Chelsea Premier League Match Preview</image:title>
+  </image:image>
+  </url>
+  <url>
+    <loc>https://thematchgoat.vercel.app/matches/liverpool-vs-nottingham-forest-preview-nov-22.html</loc>
+    <image:image>
+      <image:loc>https://thematchgoat.vercel.app/images/covers/Liverpool-vs-Nottingham.webp</image:loc>
+      <image:title>Liverpool vs. Nottingham Forest Match Preview</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://thematchgoat.vercel.app/matches/newcastle-vs-man-city-preview-nov-22.html</loc>
+  <image:image>
+    <image:loc>https://thematchgoat.vercel.app/images/covers/Newcastle-vs-Manchester%20City.webp</image:loc>
+    <image:title>Newcastle vs. Manchester City Match Preview</image:title>
+  </image:image>
+  </url>
+  <url>
+    <loc>https://thematchgoat.vercel.app/matches/arsenal-vs-tottenham-preview-nov-23.html</loc>
+    <image:image>
+      <image:loc>https://thematchgoat.vercel.app/images/covers/Arsenal-vs-Tottenham%20Hotspur.webp</image:loc>
+      <image:title>Arsenal vs. Tottenham Hotspur North London Derby Preview</image:title>
+    </image:image>
 </urlset>

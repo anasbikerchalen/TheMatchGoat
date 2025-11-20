@@ -8,7 +8,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WWFLDWLN');</script>
 <!-- PERFORMANCE FIX: Preconnect to Google to speed up GTM loading -->
-<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.googletagmanager.com" fetchpriority="high">
 <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8" />
@@ -50,7 +50,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="apple-touch-icon" href="../thematchgoat-icon.png">
 
   <!-- === SEO Tags: Update the canonical URL and date === -->
-  <link rel="canonical" href="https://www.thematchgoat.vercel.app/articles/[your-new-article-url].html" />
+  <link rel="canonical" href="https://www.thematchgoat.vercel.app/matches/[your-new-article-url].html" />
 
   <!-- Open Graph (Facebook/LinkedIn) -->
   <meta property="og:type" content="article">
@@ -108,27 +108,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </nav>
     </div>
   </header>
-  <main>
-    <div class="container">
-      <article>
+  <main class="container">
+    <article>
         <!-- === START ARTICLE CONTENT === -->
 
         <h1>[Your Main Article Title Here]</h1>
         <p>This is the introductory paragraph. Explain what the article is about and what the reader will learn.</p>
 
-        <!-- --- COPY THIS BLOCK FOR IMAGES --- -->
+        <!-- --- IMAGE BLOCK --- -->
         <div class="image-container">
           <picture>
-            <!-- 1. Create your WebP file and link it here -->
-            <source srcset="img/[your-image-name].webp" type="image/webp">
-            <!-- 2. Link the original PNG here as fallback + Add Width/Height -->
-            <img src="img/[your-image-name].png" alt="[Description of image for SEO]" width="800" height="450" loading="lazy">
+            <!-- For a new image, place it in the /img/ folder and link it below. -->
+            <!-- Example: <source srcset="../img/your-image.webp" type="image/webp"> -->
+            <!-- To use the generic cover, just use the line below. -->
+            <img src="../thematchgoat-cover.png" alt="[Description of image for SEO]" width="800" height="450" loading="lazy">
           </picture>
         </div>
-        <!-- ---------------------------------- -->
+        <!-- --------------- -->
 
-        <!-- SEO FIX: Use H2 for main sections, not H3 -->
-        <h2>[This is a Subheading for a New Section]</h2>
+        <h2>[Subheading for a New Section]</h2>
         <p>This is a paragraph with more details. You can include <strong>bold text</strong> and also <a href="#">links to other pages</a>.</p>
         
         <ul>
@@ -137,8 +135,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
 
         <!-- === END ARTICLE CONTENT === -->
-      </article>
-    </div>
+    </article>
   </main>
   <footer class="site-footer">
     <div class="container">
