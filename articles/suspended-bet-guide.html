@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WWFLDWLN');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- === SEO & Metadata === -->
+  <title>What Happens When Your Bet Gets Suspended? | The Match Goat</title>
+  <meta name="description" content="A definitive guide to suspended bets. Use our interactive outcome predictor tool to see if your bet will stand or be voided."/>
+
+  <!-- External Styles (Optional) -->
+  <link rel="stylesheet" href="../styles.css"/>
+  <script defer src="../app.js"></script>
+  
+  <!-- === Favicons === -->
+  <link rel="icon" href="../thematchgoat-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../thematchgoat-icon.png">
+
+  <!-- === SEO Tags === -->
+  <link rel="canonical" href="https://www.thematchgoat.vercel.app/articles/suspended-bet-guide.html" />
+  
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="The Match Goat">
+  <meta property="og:title" content="What Happens When Your Bet Gets Suspended? | The Match Goat">
+  <meta property="og:description" content="Use our interactive tool to predict if your suspended bet will stand or be voided.">
+  <meta property="og:image" content="../thematchgoat-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Happens When Your Bet Gets Suspended? Your Definitive Guide",
+    "image": "https://www.thematchgoat.vercel.app/thematchgoat-cover.png",
+    "author": { "@type": "Organization", "name": "The Match Goat" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Match Goat",
+      "logo": { "@type": "ImageObject", "url": "https://www.thematchgoat.vercel.app/thematchgoat-icon.png" }
+    },
+    "datePublished": "2023-10-27",
+    "description": "A definitive guide to understanding voided bets and an interactive tool to predict outcomes."
+  }
+  </script>
+
+  <!-- === CUSTOM CSS (Self-Contained for Tool Stability) === -->
+  <style>
+    /* Typography Reset */
+    body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.6;
+        color: #333;
+    }
+    h1.article-title {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: 1px;
+      /* Gradient text effect */
+      background: linear-gradient(90deg, #79C2FF, #C588FF);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 10px;
+    }
+    .article-subtitle {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 40px;
+    }
+
+    /* --- Feature Boxes --- */
+    .golden-rule-box {
+      background-color: #ebf8ff;
+      border-left: 5px solid #79C2FF;
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 30px 0;
+    }
+    .golden-rule-title { color: #374151; font-weight: bold; margin-bottom: 5px; display: block; }
+    .golden-rule-text { color: #4b5563; margin: 0; }
+
+    /* --- INTERACTIVE TOOL CSS --- */
+    #tmg-tool-wrapper {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin: 50px 0;
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .tool-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 15px;
+    }
+    .tool-title { font-size: 1.5rem; font-weight: 800; color: #1f2937; margin: 0; }
+    .tool-badge { background: #000; color: #fff; font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; font-weight: bold; }
+    
+    /* Tool Inputs */
+    .tool-label {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 10px;
+    }
+    .tool-select {
+      display: block;
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      background-color: #fff;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+      font-family: inherit;
+      box-sizing: border-box; /* Fixes width issues */
+    }
+    .tool-select:focus {
+      outline: none;
+      border-color: #79C2FF;
+    }
+    .tool-error { border-color: #ef4444 !important; animation: shake 0.4s; }
+    @keyframes shake { 0%, 100% {transform: translateX(0);} 25% {transform: translateX(-5px);} 75% {transform: translateX(5px);} }
+
+    /* Tool Buttons */
+    .btn-group { display: grid; grid-template-columns: 1fr 2fr; gap: 15px; }
+    .tool-btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .btn-primary {
+      background-color: #111827;
+      color: white;
+      width: 100%;
+    }
+    .btn-primary:hover { background-color: #374151; transform: translateY(-1px); }
+    .btn-secondary {
+      background-color: #e5e7eb;
+      color: #374151;
+    }
+    .btn-secondary:hover { background-color: #d1d5db; }
+    .btn-action {
+      background-color: #10b981; /* Success Green */
+      color: white;
+    }
+    .btn-action:hover { background-color: #059669; }
+
+    /* Tool Result Box */
+    .result-box {
+      background-color: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      margin-top: 30px;
+      animation: resultFadeIn 0.5s ease-out;
+    }
+    .result-icon { font-size: 2.5rem; display: block; margin-bottom: 10px; }
+    .result-title { font-weight: 800; color: #065f46; margin-bottom: 10px; display: block; font-size: 1.2rem; }
+    .result-text { font-size: 1.1rem; color: #047857; line-height: 1.5; }
+    .restart-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: #059669;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    /* Utility classes */
+    .hidden { display: none !important; }
+    .fade-in { animation: fadeIn 0.3s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes resultFadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+    /* --- FAQs --- */
+    details {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    summary { font-weight: 600; color: #111827; list-style: none; display: flex; justify-content: space-between; }
+    summary:after { content: "+"; font-weight: bold; }
+    details[open] summary:after { content: "-"; }
+    details p { margin-top: 10px; margin-bottom: 0; font-size: 1rem; color: #4b5563; }
+
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WWFLDWLN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="../index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+          <img class="brand-logo" src="../thematchgoat-icon.png" alt="The Match Goat logo" width="28" height="28" />
+          <span class="brand-name">The Match Goat</span>
+        </a>
+      </div>
+      <nav class="main-nav">
+        <a href="../index.html">Home</a>
+        <a href="../blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <article>
+        
+        <!-- Header Section -->
+        <h1 class="article-title">What Happens When Your Bet Gets Suspended?</h1>
+        <p class="article-subtitle">
+            Your definitive guide to understanding voided bets, rules across sports, and an interactive tool to predict your outcome.
+        </p>
+
+        <!-- Intro -->
+        <p>Betting on sports offers an exhilarating thrill, but occasionally, unforeseen circumstances can turn a straightforward wager into a confusing dilemma.</p>
+        <p>A game suspension can leave even seasoned bettors scratching their heads. Will your bet be voided? Does it stand? As analysts at <strong>The Match Goat</strong>, we've navigated these choppy waters countless times. This guide cuts through the noise to help you understand the fate of your stake.</p>
+
+        <!-- === INTERACTIVE TOOL (Self Contained) === -->
+        <div id="tmg-tool-wrapper">
+            <div class="tool-header">
+                <h3 class="tool-title">Suspended Bet Predictor</h3>
+                <span class="tool-badge">BETA</span>
+            </div>
+            
+            <div id="betPredictor">
+                <!-- Step 1 -->
+                <div id="step1" class="fade-in">
+                    <label for="predictorSport" class="tool-label">1. What sport are you betting on?</label>
+                    <select id="predictorSport" class="tool-select">
+                        <option value="">Choose a sport...</option>
+                        <option value="Football (Soccer)">Football (Soccer)</option>
+                        <option value="American Football">American Football</option>
+                        <option value="Basketball">Basketball</option>
+                        <option value="Baseball">Baseball</option>
+                        <option value="Tennis">Tennis</option>
+                    </select>
+                    <button onclick="nextStep(2)" class="tool-btn btn-primary">Next Step &rarr;</button>
+                </div>
+
+                <!-- Step 2 -->
+                <div id="step2" class="hidden fade-in">
+                    <label for="predictorBetType" class="tool-label">2. What type of bet did you place?</label>
+                    <select id="predictorBetType" class="tool-select">
+                        <option value="">Select Bet Type</option>
+                    </select>
+                    <div class="btn-group">
+                        <button onclick="prevStep(1)" class="tool-btn btn-secondary">&larr; Back</button>
+                        <button onclick="nextStep(3)" class="tool-btn btn-primary">Next &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div id="step3" class="hidden fade-in">
+                    <label for="predictorGameState" class="tool-label">3. At what stage was the game suspended?</label>
+                    <select id="predictorGameState" class="tool-select">
+                        <option value="">Select Game Stage</option>
+                    </select>
+                    <div class="btn-group">
+                        <button onclick="prevStep(2)" class="tool-btn btn-secondary">&larr; Back</button>
+                        <button onclick="nextStep(4)" class="tool-btn btn-primary">Next &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div id="step4" class="hidden fade-in">
+                    <label for="predictorResumption" class="tool-label">4. Current Status</label>
+                    <select id="predictorResumption" class="tool-select">
+                        <option value="">Select Status</option>
+                        <option value="Rescheduled & Completed">Rescheduled & Completed soon</option>
+                        <option value="Abandoned/Not Completed">Abandoned / Not completed</option>
+                    </select>
+                    <div class="btn-group">
+                        <button onclick="prevStep(3)" class="tool-btn btn-secondary">&larr; Back</button>
+                        <button onclick="calculateOutcome()" class="tool-btn btn-action">Analyze Outcome</button>
+                    </div>
+                </div>
+
+                <!-- Result -->
+                <div id="predictionResult" class="result-box hidden">
+                    <span class="result-icon">🎯</span>
+                    <span class="result-title">Predicted Outcome</span>
+                    <p id="resultText" class="result-text"></p>
+                    <span onclick="location.reload()" class="restart-link">Start Over</span>
+                </div>
+            </div>
+        </div>
+        <!-- === END TOOL === -->
+
+        <h2>Why Games Get Suspended</h2>
+        <p>Understanding why a game is halted is the first step in comprehending its impact on your bet. Common reasons include:</p>
+        <ul>
+            <li><strong>Weather:</strong> Rain, lightning, or extreme heat (common in Baseball & Football).</li>
+            <li><strong>Safety:</strong> Player injuries or medical emergencies.</li>
+            <li><strong>Technical:</strong> Floodlight failure or VAR issues.</li>
+        </ul>
+
+        <h2>The Golden Rule: Is Your Stake Safe?</h2>
+        <div class="golden-rule-box">
+            <span class="golden-rule-title">The Short Answer:</span>
+            <p class="golden-rule-text">In 90% of cases, if a game is suspended and not finished within 24-48 hours, <strong>your stake is returned (voided)</strong>.</p>
+        </div>
+
+        <h2>Sport-Specific Nuances</h2>
+        
+        <h3>⚽ Football (Soccer)</h3>
+        <p>Most bookies require 90 minutes. If a match is abandoned at the 85th minute, bets are often voided unless the governing body lets the result stand.</p>
+
+        <h3>🏈 American Football (NFL)</h3>
+        <p>Usually requires 55 minutes of play to be "official" for full-game bets. If suspended in the 2nd quarter and not resumed, it's a void.</p>
+
+        <h3>⚾ Baseball (MLB)</h3>
+        <p>The complex one. For Moneylines, 5 innings usually counts as an official game. For Totals (Over/Under), the full 9 innings must usually be played.</p>
+
+        <h3>🎾 Tennis</h3>
+        <p>Tennis is unique. Many books will keep the bet "open" for days waiting for the match to resume (e.g., rain delays at Wimbledon).</p>
+
+        <!-- FAQ Section -->
+        <section style="margin-top: 50px;">
+            <h2 style="text-align: center;">Frequently Asked Questions</h2>
+            
+            <details>
+                <summary>What does "Void Bet" mean?</summary>
+                <p>A void bet means the wager is nullified. It's treated as if it never happened, and your full stake is returned to your account balance.</p>
+            </details>
+
+            <details>
+                <summary>What happens to my Parlay?</summary>
+                <p>The suspended leg is removed. A 4-team parlay becomes a 3-team parlay. You don't lose the whole bet, but the potential payout decreases.</p>
+            </details>
+
+            <details>
+                <summary>What about Live Bets?</summary>
+                <p>If the outcome was already decided (e.g., "First Goal Scorer"), the bet stands. If the outcome was still unknown (e.g., "Total Goals"), it is voided.</p>
+            </details>
+
+            <details>
+                <summary>Are my winnings taxable if the bet stands?</summary>
+                <p>Yes. If your bet is a winner, the winnings are considered taxable income. Learn more in our complete <a href="are-betting-winnings-taxable.html">guide to taxes on betting winnings</a>.</p>
+            </details>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> The Match Goat. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Tool Logic Script -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toolData = {
+        sports: {
+            "Football (Soccer)": {
+                betTypes: ["Single (Moneyline/Spread/Total)", "Parlay/Accumulator", "In-Play (Live)", "Prop Bet", "Futures Bet"],
+                gameStates: ["Pre-match", "During 1st Half", "Half-time", "During 2nd Half (before 80 mins)", "During 2nd Half (after 80 mins)"]
+            },
+            "American Football": {
+                betTypes: ["Single (Moneyline/Spread/Total)", "Parlay/Accumulator", "In-Play (Live)", "Prop Bet", "Futures Bet"],
+                gameStates: ["Pre-match", "During 1st Quarter", "Half-time", "During 3rd Quarter", "During 4th Quarter (before 55 mins)", "During 4th Quarter (after 55 mins)"]
+            },
+            "Basketball": {
+                betTypes: ["Single (Moneyline/Spread/Total)", "Parlay/Accumulator", "In-Play (Live)", "Prop Bet", "Futures Bet"],
+                gameStates: ["Pre-match", "During 1st Quarter", "Half-time", "During 3rd Quarter", "During 4th Quarter (before 43 mins)", "During 4th Quarter (after 43 mins)"]
+            },
+            "Baseball": {
+                betTypes: ["Single (Moneyline)", "Single (Run Line/Total)", "Parlay/Accumulator", "In-Play (Live)", "Prop Bet", "Futures Bet"],
+                gameStates: ["Pre-match", "Before 5th Inning", "After 5th Inning (Home team winning)", "After 5th Inning (Away team winning/Tie)"]
+            },
+            "Tennis": {
+                betTypes: ["Match Winner", "Set/Game Specific", "Parlay/Accumulator", "In-Play (Live)", "Futures Bet"],
+                gameStates: ["Pre-match", "During 1st Set", "During subsequent Sets", "During final Set"]
+            }
+        }
+    };
+
+    let currentStep = 1;
+    const elements = {
+        step1: document.getElementById('step1'),
+        step2: document.getElementById('step2'),
+        step3: document.getElementById('step3'),
+        step4: document.getElementById('step4'),
+        predictorSport: document.getElementById('predictorSport'),
+        predictorBetType: document.getElementById('predictorBetType'),
+        predictorGameState: document.getElementById('predictorGameState'),
+        predictorResumption: document.getElementById('predictorResumption'),
+        predictionResult: document.getElementById('predictionResult'),
+        resultText: document.getElementById('resultText')
+    };
+
+    function showStep(stepNum) {
+        ['step1', 'step2', 'step3', 'step4', 'predictionResult'].forEach(id => {
+            const el = document.getElementById(id);
+            if(el) el.classList.add('hidden');
+        });
+        
+        if (elements[`step${stepNum}`]) {
+            elements[`step${stepNum}`].classList.remove('hidden');
+        }
+        currentStep = stepNum;
+    }
+
+    function nextStep(stepNum) {
+        const currentSelectMap = ['predictorSport', 'predictorBetType', 'predictorGameState', 'predictorResumption'];
+        const currentSelectId = currentSelectMap[currentStep - 1];
+        const currentSelect = document.getElementById(currentSelectId);
+
+        if (currentSelect && !currentSelect.value) {
+            currentSelect.classList.add('tool-error');
+            setTimeout(() => currentSelect.classList.remove('tool-error'), 500);
+            return;
+        }
+        
+        showStep(stepNum);
+    }
+
+    function prevStep(stepNum) {
+        showStep(stepNum);
+    }
+
+    function updateBetTypes() {
+        const sport = elements.predictorSport.value;
+        const betTypeSelect = elements.predictorBetType;
+        betTypeSelect.innerHTML = '<option value="">Select Bet Type</option>';
+        if (sport && toolData.sports[sport]) {
+            toolData.sports[sport].betTypes.forEach(type => {
+                const option = document.createElement('option');
+                option.value = type;
+                option.textContent = type;
+                betTypeSelect.appendChild(option);
+            });
+        }
+    }
+
+    function updateGameStates() {
+        const sport = elements.predictorSport.value;
+        const gameStateSelect = elements.predictorGameState;
+        gameStateSelect.innerHTML = '<option value="">Select Game Stage</option>';
+        if (sport && toolData.sports[sport]) {
+            toolData.sports[sport].gameStates.forEach(state => {
+                const option = document.createElement('option');
+                option.value = state;
+                option.textContent = state;
+                gameStateSelect.appendChild(option);
+            });
+        }
+    }
+
+    function calculateOutcome() {
+        const sport = elements.predictorSport.value;
+        const betType = elements.predictorBetType.value;
+        const gameState = elements.predictorGameState.value;
+        const resumption = elements.predictorResumption.value;
+
+        if (!sport || !betType || !gameState || !resumption) return;
+
+        elements.step4.classList.add('hidden');
+        elements.predictionResult.classList.remove('hidden');
+        elements.resultText.innerHTML = getOutcome(sport, betType, gameState, resumption);
+    }
+
+    function getOutcome(sport, betType, gameState, resumption) {
+        if (resumption.includes("Rescheduled & Completed")) {
+            return "Your bet will likely STAND and be settled on the final score, as the game was completed within a reasonable timeframe.";
+        }
+        if (betType.includes("Parlay")) {
+            return "This specific 'leg' of your parlay will be VOIDED (removed). The rest of your parlay continues with adjusted odds. You don't lose the whole ticket!";
+        }
+        if (betType.includes("Futures")) {
+            return "Your bet remains ACTIVE unless the entire season is cancelled. A single suspended game rarely impacts a futures bet.";
+        }
+        if (betType.includes("In-Play") || betType.includes("Prop") || betType.includes("Set/Game")) {
+            const determinedLogic = [
+                (sport === "Football (Soccer)" && gameState.includes("after 80 mins")),
+                (sport === "American Football" && gameState.includes("after 55 mins")),
+                (sport === "Basketball" && gameState.includes("after 43 mins")),
+                (sport === "Baseball" && betType.includes("Moneyline") && gameState.includes("After 5th Inning"))
+            ];
+            if (determinedLogic.some(Boolean) && (betType.includes("Moneyline") || betType.includes("Spread") || betType.includes("Total"))) {
+               return "Because the game reached a critical stage (e.g., 55 mins in NFL or 5 innings in MLB), your bet will likely STAND based on the score when suspended.";
+            }
+            return "If the specific event happened BEFORE suspension (e.g., First Goal Scorer won), it PAYS OUT. If the outcome was undecided (e.g. Total Goals), it is VOIDED and refunded.";
+        }
+        if (resumption.includes("Abandoned")) {
+            if (sport === "Baseball" && betType.includes("Moneyline") && gameState.includes("After 5th Inning")) {
+                return "Action! Because 5 innings were completed, this is an official game. Winning bets are paid based on the score at the last full inning.";
+            }
+            if ((sport === "American Football" && gameState.includes("after 55 mins")) || (sport === "Basketball" && gameState.includes("after 43 mins"))) {
+                 return "Likely Action. The game went long enough to be considered 'Official' by house rules. Bets settled on current score.";
+            }
+            return "VOID. The game did not reach the required time to be official. Your stake should be returned to your balance.";
+        }
+        return "Your bet is likely voided and your stake returned.";
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Populate dropdowns immediately on change
+        elements.predictorSport.addEventListener('change', updateBetTypes);
+        elements.predictorBetType.addEventListener('change', updateGameStates);
+    });
+  </script>
+</body>
+</html>
